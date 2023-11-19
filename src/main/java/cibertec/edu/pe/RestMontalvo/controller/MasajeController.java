@@ -24,25 +24,25 @@ public class MasajeController {
     private MasajeService masajeService;
 
     @GetMapping("")
-    public ResponseEntity<List<Masaje>> listarProductos(){
-        List<Masaje> productList = new ArrayList<>();
-        masajeService.listarMasaje().forEach(productList::add);
-        if(productList.isEmpty()){
+    public ResponseEntity<List<Masaje>> listarMajase(){
+        List<Masaje> masajeList = new ArrayList<>();
+        masajeService.listarMasaje().forEach(masajeList ::add);
+        if(masajeList .isEmpty()){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return  new ResponseEntity<>(productList, HttpStatus.OK);
+        return  new ResponseEntity<>(masajeList, HttpStatus.OK);
     }
 
     @GetMapping("/dto")
-    public ResponseEntity<List<DtoEntity>> listarProductosDto(){
-        List<DtoEntity> productList = new ArrayList<>();
-        productList = masajeService.listarMasaje()
+    public ResponseEntity<List<DtoEntity>> listarMasajeDto(){
+        List<DtoEntity> masajeList = new ArrayList<>();
+        masajeList = masajeService.listarMasaje()
                 .stream()
-                .map(prod -> new DtoUtil().convertirADto(prod, new MasajeDto()))
+                .map(maj -> new DtoUtil().convertirADto(maj, new MasajeDto()))
                 .collect(Collectors.toList());
-        if(productList.isEmpty()){
+        if(masajeList.isEmpty()){
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
-        return  new ResponseEntity<>(productList, HttpStatus.OK);
+        return  new ResponseEntity<>(masajeList, HttpStatus.OK);
     }
 }

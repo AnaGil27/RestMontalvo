@@ -18,7 +18,7 @@ public class DescMasajeService {
     public DescMasaje guardar(DescMasaje descMasaje){
         return descMasajeRepository.save(descMasaje);
     }
-    public Optional<DescMasaje> obtenerdesmansajePorId(Integer id){
+    public Optional<DescMasaje> obtenerdescmansajePorId(Integer id){
         Optional<DescMasaje> descMasaje = descMasajeRepository.findById(id);
         if(descMasaje.isEmpty()){
             return Optional.empty();
@@ -26,7 +26,7 @@ public class DescMasajeService {
             return descMasaje;
     }
 
-    public Optional<DescMasaje> obtenerDescMasajePorNombre(String desc_masaje){
+    public Optional<DescMasaje> obtenerDescMasaje(String desc_masaje){
         Optional<DescMasaje> descMasaje = descMasajeRepository.findByDescMasaje(desc_masaje);
         if(descMasaje.isEmpty())
             return  Optional.empty();
@@ -37,4 +37,6 @@ public class DescMasajeService {
     public List<DescMasaje> obtenerDescMasajePorFiltro(String filtro){
         return descMasajeRepository.filtrardesc_masajeSQL(filtro);
     }
+
+
 }

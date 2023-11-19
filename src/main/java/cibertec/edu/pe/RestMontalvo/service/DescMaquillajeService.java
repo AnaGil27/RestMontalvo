@@ -1,7 +1,5 @@
 package cibertec.edu.pe.RestMontalvo.service;
 
-import cibertec.edu.pe.RestMontalvo.model.bd.DescPeinado;
-import cibertec.edu.pe.RestMontalvo.repository.DescPeinadoRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import cibertec.edu.pe.RestMontalvo.model.bd.DescMaquillaje;
@@ -28,12 +26,12 @@ public class DescMaquillajeService {
             return descMaquillaje;
     }
 
-    public Optional<DescMaquillaje> obtenerdesc_peinado(String desc_maquillaje){
-        Optional<DescMaquillaje> descPeinado = descMaquillajeRepository.findBydesc_maquillaje(desc_maquillaje);
-        if(descPeinado.isEmpty())
+    public Optional<DescMaquillaje> obtenerdesc_maquillaje(String desc_maquillaje){
+        Optional<DescMaquillaje> descmaquillaje = descMaquillajeRepository.findBydesc_maquillaje(desc_maquillaje);
+        if(descmaquillaje.isEmpty())
             return  Optional.empty();
         else
-            return descPeinado;
+            return descmaquillaje;
     }
 
     public List<DescMaquillaje> obtenerDescMaquillajePorFiltro(String filtro){

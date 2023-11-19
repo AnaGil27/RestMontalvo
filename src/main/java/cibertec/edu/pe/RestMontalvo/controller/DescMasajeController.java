@@ -13,7 +13,7 @@ import java.util.List;
 
 @AllArgsConstructor
 @RestController
-@RequestMapping(path = "api/v1/DescMasaje")
+@RequestMapping(path = "api/v1/descmasaje")
 public class DescMasajeController {
 
     private DescMasajeService descMasajeService;
@@ -33,26 +33,15 @@ public class DescMasajeController {
     @GetMapping("/{id}")
     public ResponseEntity<DescMasaje> obtenerdescmasaje(
             @PathVariable("id") Integer id){
-        DescMasaje category = descMasajeService
-                .obtenerdesmansajePorId(id)
-                .orElseThrow(() -> new ResourceNotFoundException("La categoria con el Id Nro. "+
+        DescMasaje masaje = descMasajeService
+                .obtenerdescmansajePorId(id)
+                .orElseThrow(() -> new ResourceNotFoundException("Masaje con el Id Nro. "+
                         id + " no existe."));
 
-        return new ResponseEntity<>(category, HttpStatus.OK);
+        return new ResponseEntity<>(masaje, HttpStatus.OK);
     }
 
-    /*@GetMapping("/categoryname/{categoryname}")
-    public ResponseEntity<Category> obtenerCategoriaPorNombre(
-            @PathVariable("categoryname") String categoryName){
-        Category category = categoryService
-                .obtenerCatogoriaPorNombre(categoryName)
-                .orElseThrow(() -> new ResourceNotFoundException("La categoria con el nombre "+
-                        categoryName + " no existe."));
-
-        return new ResponseEntity<>(category, HttpStatus.OK);
-    }*/
-
-    @GetMapping("/categoryname/{filtro}")
+    @GetMapping("/desc_masaje/{filtro}")
     public ResponseEntity<List<DescMasaje>> filtrarDescMasajePorNombre(
             @PathVariable("filtro") String filtro
     ){
@@ -81,7 +70,7 @@ public class DescMasajeController {
             @RequestBody DescMasaje descMasaje
     ){
         DescMasaje oldDescMasaje = descMasajeService
-                .obtenerdesmansajePorId(id)
+                .obtenerdescmansajePorId(id)
                 .orElseThrow(() -> new ResourceNotFoundException("La Descripcion Masaje con el Id Nro. "+
                         id + " no existe."));
         oldDescMasaje.setDesc_masaje(descMasaje.getDesc_masaje());

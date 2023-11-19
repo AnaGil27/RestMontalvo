@@ -40,7 +40,7 @@ public class DescMaquillajeController {
 
 
     @GetMapping("/desc_maquillaje/{filtro}")
-    public ResponseEntity<List<DescMaquillaje>> filtrarDescPeinadoPorNombre(
+    public ResponseEntity<List<DescMaquillaje>> filtrarDescMaquillajePorNombre(
             @PathVariable("filtro") String filtro
     ){
         List<DescMaquillaje> descMaquillajeList = new ArrayList<>();
