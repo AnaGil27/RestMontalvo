@@ -44,7 +44,7 @@ public class MaquillajeController {
         }
         return  new ResponseEntity<>(maquillajeList, HttpStatus.OK);
     }
-    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
     @PutMapping("/{id}")
     public ResponseEntity<String> actualizarMaquillaje(@PathVariable Integer id, @RequestBody Maquillaje maquillaje) {
         try {
