@@ -1,12 +1,12 @@
 package cibertec.edu.pe.RestMontalvo.controller;
 
+import cibertec.edu.pe.RestMontalvo.exception.ResourceNotFoundException;
+import cibertec.edu.pe.RestMontalvo.model.bd.DescPeinado;
 import lombok.AllArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import cibertec.edu.pe.RestMontalvo.model.bd.Peinado;
 import cibertec.edu.pe.RestMontalvo.model.dto.DtoEntity;
 import cibertec.edu.pe.RestMontalvo.model.dto.PeinadoDto;
@@ -15,6 +15,7 @@ import cibertec.edu.pe.RestMontalvo.util.DtoUtil;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 
@@ -46,6 +47,46 @@ public class PeinadoController {
         return  new ResponseEntity<>(peinadolist, HttpStatus.OK);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<String> actualizarPeinado(@PathVariable Integer id, @RequestBody Peinado peinado) {
+        try {
+            // Verifica si el peinado con el ID proporcionado existe
+            Optional<Peinado> peinadoExistente = peinadoService.obtenerPeinadoPorId(id);
+
+            if (peinadoExistente.isPresent()) {
+                // Actualiza los datos del peinado existente
+                peinado.setIdpeinado(id);
+                peinadoService.actualizarPeinado(peinado);
+
+                return new ResponseEntity<>("Peinado actualizado exitosamente", HttpStatus.OK);
+            } else {
+                // El peinado con el ID proporcionado no existe
+                return new ResponseEntity<>("No se encontró el peinado con el ID: " + id, HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>("Error al actualizar el peinado: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PostMapping("")
+    public ResponseEntity<Peinado> registrarPeinado(
+            @RequestBody Peinado peinado
+    ){
+        return new ResponseEntity<>(
+                peinadoService.guardar(peinado), HttpStatus.CREATED
+        );
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> eliminarPeinado(@PathVariable Integer id) {
+        try {
+            // Llama al servicio para eliminar el registro
+            peinadoService.eliminarPeinado(id);
+            return new ResponseEntity<>("Registro eliminado exitosamente", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Error al eliminar el registro: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
 
 
