@@ -6,8 +6,8 @@ import lombok.Data;
 @Data
 public class MasajeDto implements DtoEntity {
 
-    private Integer id_masaje;
-    private String precio_masaje;
-    private String tiempo_masaje;
+    private Integer idmasaje;
+    private String preciomasaje;
+    private String tiempomasaje;
     private DescMasaje descmasaje;
 }

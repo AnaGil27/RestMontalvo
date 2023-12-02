@@ -5,6 +5,6 @@ import lombok.Data;
 
 @Data
 public class DescManicuraDto  implements DtoEntity  {
-    private Integer id_desc_manicura;
-    private String desc_manicura;
+    private Integer iddescmanicura;
+    private String descripcion;
 }

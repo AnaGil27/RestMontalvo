@@ -12,14 +12,14 @@ import java.util.Optional;
 
 @Repository
 public interface DescMaquillajeRepository extends JpaRepository<DescMaquillaje,Integer>{
-    Optional<DescMaquillaje> findBydesc_maquillaje(String desc_maquillaje);
+    Optional<DescMaquillaje> findByNombremaquillaje(String nombremaquillaje);
 
-    List<DescMaquillaje> findBydesc_maquillajeContainingIgnoreCase(String filtro);
+    List<DescMaquillaje> findByNombremaquillajeContainingIgnoreCase(String filtro);
 
-    @Query("SELECT d FROM DescMaquillaje d WHERE d.desc_maquillaje LIKE %:filtro%")
+    @Query("SELECT d FROM DescMaquillaje d WHERE d.nombremaquillaje LIKE %:filtro%")
     List<DescMaquillaje> filtrarDescMaquillajePorNombre(@Param("filtro") String filtro);
 
-    @Query(value = "SELECT * FROM descmaquillaje WHERE desc_maquillaje LIKE %:filtro%",
+    @Query(value = "SELECT * FROM descmaquillaje WHERE nombremaquillaje LIKE %:filtro%",
             nativeQuery = true)
     List<DescMaquillaje> filtrarDescMaquillajePorNombreSQL(@Param("filtro") String filtro);
 

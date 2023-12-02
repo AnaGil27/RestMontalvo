@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class DescMasaje {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_desc_masaje;
-    @Column(name = "desc_masaje")
-    private String desc_masaje;
+    private Integer iddescmasaje;
+    @Column(name = "nombremasaje")
+    private String nombremasaje;
 }

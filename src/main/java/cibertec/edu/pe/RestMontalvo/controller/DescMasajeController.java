@@ -41,7 +41,7 @@ public class DescMasajeController {
         return new ResponseEntity<>(masaje, HttpStatus.OK);
     }
 
-    @GetMapping("/desc_masaje/{filtro}")
+    @GetMapping("/nombremasaje/{filtro}")
     public ResponseEntity<List<DescMasaje>> filtrarDescMasajePorNombre(
             @PathVariable("filtro") String filtro
     ){
@@ -73,7 +73,7 @@ public class DescMasajeController {
                 .obtenerdescmansajePorId(id)
                 .orElseThrow(() -> new ResourceNotFoundException("La Descripcion Masaje con el Id Nro. "+
                         id + " no existe."));
-        oldDescMasaje.setDesc_masaje(descMasaje.getDesc_masaje());
+        oldDescMasaje.setNombremasaje(descMasaje.getNombremasaje());
         return new ResponseEntity<>(
                 descMasajeService.guardar(oldDescMasaje), HttpStatus.OK
         );

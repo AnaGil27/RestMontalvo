@@ -8,11 +8,10 @@ import lombok.*;
 @NoArgsConstructor
 @Entity
 @Table(name="descpeinado")
-
 public class DescPeinado {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_desc_peinado;
-    @Column(name="desc_peinado")
-    private String desc_peinado;
+    private Integer iddescpeinado;
+    @Column(name="nombrepeinado")
+    private String nombrepeinado;
 }

@@ -10,13 +10,13 @@ import lombok.*;
 public class Maquillaje {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_maquillaje;
-    @Column(name="precio_maquillaje")
-    private String precio_maquillaje;
-    @Column(name="tiempo_maquillaje")
-    private String tiempo_maquillaje;
+    private Integer idmaquillaje;
+    @Column(name="preciomaquillaje")
+    private String preciomaquillaje;
+    @Column(name="tiempomaquillaje")
+    private String tiempomaquillaje;
 
     @ManyToOne
-    @JoinColumn(name="id_desc_maquillaje")
+    @JoinColumn(name="iddescmaquillaje")
     private DescMaquillaje descmaquillaje;
 }

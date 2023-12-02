@@ -39,7 +39,7 @@ public class DescMaquillajeController {
     }
 
 
-    @GetMapping("/desc_maquillaje/{filtro}")
+    @GetMapping("/nombremaquillaje/{filtro}")
     public ResponseEntity<List<DescMaquillaje>> filtrarDescMaquillajePorNombre(
             @PathVariable("filtro") String filtro
     ){
@@ -69,9 +69,9 @@ public class DescMaquillajeController {
     ){
         DescMaquillaje viejoDescMaquillaje = descMaquillajeService
                 .obtenerDescMaquillajePorId(id)
-                .orElseThrow(() -> new ResourceNotFoundException("el descMaquillaje con el Id Nro. "+
+                .orElseThrow(() -> new ResourceNotFoundException("La descripcion con el Id Nro. "+
                         id + " no existe."));
-        viejoDescMaquillaje.setDesc_maquillaje(descMaquillaje.getDesc_maquillaje());
+        viejoDescMaquillaje.setNombremaquillaje(descMaquillaje.getNombremaquillaje());
         return new ResponseEntity<>(
                 descMaquillajeService.guardar(viejoDescMaquillaje), HttpStatus.OK
         );

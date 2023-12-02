@@ -9,7 +9,6 @@ import java.util.Optional;
 
 @Service
 @AllArgsConstructor
-
 public class DescPeinadoService {
 
     private DescPeinadoRepository descPeinadoRepository;
@@ -28,8 +27,8 @@ public class DescPeinadoService {
             return descPeinado;
     }
 
-    public Optional<DescPeinado> obtenerdesc_peinado(String desc_peinado){
-        Optional<DescPeinado> descPeinado = descPeinadoRepository.findByDescPeinadoname(desc_peinado);
+    public Optional<DescPeinado> obtenerNombrepeinado(String nombrepeinado){
+        Optional<DescPeinado> descPeinado = descPeinadoRepository.findByNombrepeinado(nombrepeinado);
         if(descPeinado.isEmpty())
             return  Optional.empty();
         else
@@ -39,6 +38,8 @@ public class DescPeinadoService {
     public List<DescPeinado> obtenerDescPeinadoPorFiltro(String filtro){
         return descPeinadoRepository.filtrarDescPeinadoPorNombreSQL(filtro);
     }
+
+
 }
 
 

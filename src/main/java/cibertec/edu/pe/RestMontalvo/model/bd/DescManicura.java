@@ -11,7 +11,8 @@ import lombok.NoArgsConstructor;
 public class DescManicura {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_desc_manicura;
-    @Column(name = "desc_manicura")
-    private String desc_manicura;
+    private Integer iddescmanicura;
+    @Column(name = "descripcion")
+    private String descripcion;
 }
+

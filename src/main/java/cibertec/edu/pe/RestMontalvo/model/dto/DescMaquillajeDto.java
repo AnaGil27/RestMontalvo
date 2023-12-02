@@ -3,7 +3,7 @@ import lombok.Data;
 
 @Data
 public class DescMaquillajeDto implements DtoEntity {
-    private Integer id_desc_maquillaje;
-    private String desc_maquillaje;
+    private Integer iddescmaquillaje;
+    private String nombremaquillaje;
 
 }

@@ -39,7 +39,7 @@ public class DescManicuraController {
         return new ResponseEntity<>(manicura, HttpStatus.OK);
     }
 
-    @GetMapping("/desc_manicura/{filtro}")
+    @GetMapping("/descripcion/{filtro}")
     public ResponseEntity<List<DescManicura>> filtrarDescManicuraPorNombre(
             @PathVariable("filtro") String filtro
     ){
@@ -69,11 +69,13 @@ public class DescManicuraController {
     ){
         DescManicura oldDescManicura = descManicuraService
                 .obtenerdescManicuraPorId(id)
-                .orElseThrow(() -> new ResourceNotFoundException("La Descripcion Manicura con el Id Nro. "+
+                .orElseThrow(() -> new ResourceNotFoundException("La Descripción Manicura con el Id Nro. "+
                         id + " no existe."));
-        oldDescManicura.setDesc_manicura(descManicura.getDesc_manicura());
+        oldDescManicura.setDescripcion(descManicura.getDescripcion());
         return new ResponseEntity<>(
                 descManicuraService.guardar(oldDescManicura), HttpStatus.OK
         );
     }
 }
+
+

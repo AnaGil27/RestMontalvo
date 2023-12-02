@@ -5,8 +5,8 @@ import lombok.Data;
 @Data
 public class PeinadoRequest {
 
-    private Integer id_peinado;
-    private String precio_peinado;
-    private String tiempo_peinado;
-    private Integer id_desc_peinado;
+    private Integer idpeinado;
+    private String preciopeinado;
+    private String tiempopeinado;
+    private Integer iddescpeinado;
 }

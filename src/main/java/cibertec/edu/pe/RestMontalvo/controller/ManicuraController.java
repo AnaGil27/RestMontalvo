@@ -46,3 +46,5 @@ public class ManicuraController {
         return  new ResponseEntity<>(manicuraList, HttpStatus.OK);
     }
 }
+
+

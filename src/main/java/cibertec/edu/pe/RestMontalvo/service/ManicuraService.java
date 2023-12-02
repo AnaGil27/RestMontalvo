@@ -22,17 +22,19 @@ public class ManicuraService {
 
     public Manicura guardarManicura(ManicuraRequest manicura){
         Manicura objManicura = new Manicura();
-        if(manicura.getId_manicura() > 0){
-            objManicura.setId_manicura(manicura.getId_manicura());
+        if(manicura.getIdmanicura() > 0){
+            objManicura.setIdmanicura(manicura.getIdmanicura());
         }
-        objManicura.setTiempo_manicura(manicura.getTiempo_manicura());
-        objManicura.setPrecio_manicura(manicura.getPrecio_manicura());
+        objManicura.setTiempomanicura(manicura.getTiempomanicura());
+        objManicura.setPreciomanicura(manicura.getPreciomanicura());
 
         DescManicura descManicura = new DescManicura();
-        descManicura.setId_desc_manicura(manicura.getId_desc_manicura());
+        descManicura.setIddescmanicura(manicura.getIddescmanicura());
         objManicura.setDescmanicura(descManicura);
 
         return manicuraRepository.save(objManicura);
     }
 
 }
+
+

@@ -12,16 +12,20 @@ import java.util.Optional;
 @Repository
 public interface DescPeinadoRepository extends JpaRepository<DescPeinado,Integer>{
 
-    Optional<DescPeinado> findByDescPeinadoname(String desc_peinado);
+    Optional<DescPeinado> findByNombrepeinado(String nombrepeinado);
 
-    List<DescPeinado> findByDescPeinadonameContainingIgnoreCase(String filtro);
+    List<DescPeinado> findByNombrepeinadoContainingIgnoreCase(String filtro);
 
-    @Query("SELECT d FROM DescPeinado d WHERE d.desc_peinado LIKE %:filtro%")
+    //JPQL
+    @Query("SELECT d FROM DescPeinado d WHERE d.nombrepeinado LIKE %:filtro%")
     List<DescPeinado> filtrarDescPeinadoPorNombre(@Param("filtro") String filtro);
 
-    @Query(value = "SELECT * FROM descpeinado WHERE desc_peinado LIKE %:filtro%",
+    //SQL
+    @Query(value = "SELECT * FROM descpeinado WHERE nombrepeinado LIKE %:filtro%",
             nativeQuery = true)
     List<DescPeinado> filtrarDescPeinadoPorNombreSQL(@Param("filtro") String filtro);
+
+
 
 
 

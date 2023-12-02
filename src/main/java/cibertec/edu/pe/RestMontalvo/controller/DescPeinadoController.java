@@ -40,7 +40,7 @@ public class DescPeinadoController {
     }
 
 
-    @GetMapping("/desc_peinado/{filtro}")
+    @GetMapping("/nombrepeinado/{filtro}")
     public ResponseEntity<List<DescPeinado>> filtrarDescPeinadoPorNombre(
             @PathVariable("filtro") String filtro
     ){
@@ -72,7 +72,7 @@ public class DescPeinadoController {
                 .obtenerDescPeinadoPorId(id)
                 .orElseThrow(() -> new ResourceNotFoundException("el DescPeinado con el Id Nro. "+
                         id + " no existe."));
-        viejoDescPeinado.setDesc_peinado(descPeinado.getDesc_peinado());
+        viejoDescPeinado.setNombrepeinado(descPeinado.getNombrepeinado());
         return new ResponseEntity<>(
                 descPeinadoService.guardar(viejoDescPeinado), HttpStatus.OK
         );

@@ -15,8 +15,8 @@ public class DescMaquillajeService {
     public List<DescMaquillaje> listarDescMaquillaje(){
         return descMaquillajeRepository.findAll();
     }
-    public DescMaquillaje guardar(DescMaquillaje desc_maquillaje){
-        return descMaquillajeRepository.save(desc_maquillaje);
+    public DescMaquillaje guardar(DescMaquillaje descmaquillaje){
+        return descMaquillajeRepository.save(descmaquillaje);
     }
     public Optional<DescMaquillaje> obtenerDescMaquillajePorId(Integer id){
         Optional<DescMaquillaje> descMaquillaje = descMaquillajeRepository.findById(id);
@@ -26,17 +26,19 @@ public class DescMaquillajeService {
             return descMaquillaje;
     }
 
-    public Optional<DescMaquillaje> obtenerdesc_maquillaje(String desc_maquillaje){
-        Optional<DescMaquillaje> descmaquillaje = descMaquillajeRepository.findBydesc_maquillaje(desc_maquillaje);
-        if(descmaquillaje.isEmpty())
+    public Optional<DescMaquillaje> obtenerNombremaquillaje(String nombremaquillaje){
+        Optional<DescMaquillaje> descMaquillaje = descMaquillajeRepository.findByNombremaquillaje(nombremaquillaje);
+        if(descMaquillaje.isEmpty())
             return  Optional.empty();
         else
-            return descmaquillaje;
+            return descMaquillaje;
     }
 
     public List<DescMaquillaje> obtenerDescMaquillajePorFiltro(String filtro){
         return descMaquillajeRepository.filtrarDescMaquillajePorNombreSQL(filtro);
     }
+
+
 }
 
 

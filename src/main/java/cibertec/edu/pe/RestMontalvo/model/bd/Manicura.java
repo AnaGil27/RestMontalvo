@@ -11,13 +11,14 @@ import lombok.NoArgsConstructor;
 public class Manicura {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_manicura;
-    @Column(name = "precio_manicura")
-    private String precio_manicura;
-    @Column(name = "tiempo_manicura")
-    private String tiempo_manicura;
+    private Integer idmanicura;
+    @Column(name = "preciomanicura")
+    private String preciomanicura;
+    @Column(name = "tiempomanicura")
+    private String tiempomanicura;
 
     @ManyToOne
-    @JoinColumn(name = "id_desc_manicura")
+    @JoinColumn(name = "iddescmanicura")
     private DescManicura descmanicura;
 }
+

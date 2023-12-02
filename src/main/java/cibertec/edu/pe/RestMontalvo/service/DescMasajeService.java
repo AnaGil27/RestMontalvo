@@ -26,8 +26,8 @@ public class DescMasajeService {
             return descMasaje;
     }
 
-    public Optional<DescMasaje> obtenerDescMasaje(String desc_masaje){
-        Optional<DescMasaje> descMasaje = descMasajeRepository.findByDescMasaje(desc_masaje);
+    public Optional<DescMasaje> obtenerNombremasaje(String nombremasaje){
+        Optional<DescMasaje> descMasaje = descMasajeRepository.findByNombremasaje(nombremasaje);
         if(descMasaje.isEmpty())
             return  Optional.empty();
         else
@@ -35,8 +35,10 @@ public class DescMasajeService {
     }
 
     public List<DescMasaje> obtenerDescMasajePorFiltro(String filtro){
-        return descMasajeRepository.filtrardesc_masajeSQL(filtro);
+        return descMasajeRepository.filtrardescmasajeSQL(filtro);
     }
+
+
 
 
 }

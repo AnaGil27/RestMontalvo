@@ -11,15 +11,18 @@ import java.util.Optional;
 
 @Repository
 public interface DescManicuraRepository  extends JpaRepository<DescManicura,Integer> {
-    Optional<DescManicura> findByDescManicura(String desc_manicura);
+    Optional<DescManicura> findByDescripcion(String descripcion);
 
-    List<DescManicura> findBydesc_manicuraContainingIgnoreCase(String filtro);
+    List<DescManicura> findByDescripcionContainingIgnoreCase(String filtro);
 
-    @Query("SELECT d FROM DescManicura d WHERE d.desc_manicura LIKE %:filtro%")
-    List<DescManicura> filtrardesc_manicura(@Param("filtro") String filtro);
+    @Query("SELECT d FROM DescManicura d WHERE d.descripcion LIKE %:filtro%")
+    List<DescManicura> filtrardescmanicura(@Param("filtro") String filtro);
 
-    @Query(value = "SELECT * FROM DescManicura WHERE desc_manicura LIKE %:filtro%",
+
+    @Query(value = "SELECT * FROM descmanicura WHERE descripcion LIKE %:filtro%",
             nativeQuery = true)
-    List<DescManicura> filtrardesc_manicuraPorNombreSQL(@Param("filtro") String filtro);
+    List<DescManicura> filtrardescmanicuraPorNombreSQL(@Param("filtro") String filtro);
 
 }
+
+

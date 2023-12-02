@@ -4,8 +4,8 @@ import lombok.Data;
 
 @Data
 public class MaquillajeRequest {
-    private Integer id_maquillaje;
-    private String precio_maquillaje;
-    private String tiempo_maquillaje;
-    private Integer id_desc_maquillaje;
+    private Integer idmaquillaje;
+    private String preciomaquillaje;
+    private String tiempomaquillaje;
+    private Integer iddescmaquillaje;
 }

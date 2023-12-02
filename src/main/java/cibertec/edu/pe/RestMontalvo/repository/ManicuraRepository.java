@@ -7,3 +7,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ManicuraRepository  extends JpaRepository<Manicura,Integer> {
 }
+
+
+
+

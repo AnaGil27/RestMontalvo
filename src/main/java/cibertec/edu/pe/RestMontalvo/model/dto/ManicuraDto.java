@@ -5,8 +5,10 @@ import lombok.Data;
 
 @Data
 public class ManicuraDto  implements DtoEntity{
-    private Integer id_manicura;
-    private String precio_manicura;
-    private String tiempo_manicura;
+    private Integer idmanicura;
+    private String preciomanicura;
+    private String tiempomanicura;
     private DescManicura descManicura;
 }
+
+

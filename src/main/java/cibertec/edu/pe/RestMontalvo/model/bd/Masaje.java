@@ -10,13 +10,13 @@ import lombok.NoArgsConstructor;
 public class Masaje {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id_masaje;
-    @Column(name = "tiempo_masaje")
-    private String tiempo_masaje;
-    @Column(name = "precio_masaje")
-    private String precio_masaje;
+    private Integer idmasaje;
+    @Column(name = "tiempomasaje")
+    private String tiempomasaje;
+    @Column(name = "preciomasaje")
+    private String preciomasaje;
 
     @ManyToOne
-    @JoinColumn(name = "id_desc_masaje")
+    @JoinColumn(name = "iddescmasaje")
     private DescMasaje descmasaje;
 }

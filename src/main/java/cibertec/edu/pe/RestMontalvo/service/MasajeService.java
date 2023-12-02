@@ -21,14 +21,14 @@ public class MasajeService {
 
     public Masaje guardarMasaje(MasajeRequest masaje){
         Masaje objMasaje = new Masaje();
-        if(masaje.getId_masaje() > 0){
-            objMasaje.setId_masaje(masaje.getId_masaje());
+        if(masaje.getIdmasaje() > 0){
+            objMasaje.setIdmasaje(masaje.getIdmasaje());
         }
-        objMasaje.setTiempo_masaje(masaje.getTiempo_masaje());
-        objMasaje.setPrecio_masaje(masaje.getPrecio_masaje());
+        objMasaje.setTiempomasaje(masaje.getTiempomasaje());
+        objMasaje.setPreciomasaje(masaje.getPreciomasaje());
 
         DescMasaje descMasaje = new DescMasaje();
-        descMasaje.setId_desc_masaje(masaje.getId_desc_masaje());
+        descMasaje.setIddescmasaje(masaje.getIddescmasaje());
         objMasaje.setDescmasaje(descMasaje);
 
         return masajeRepository.save(objMasaje);

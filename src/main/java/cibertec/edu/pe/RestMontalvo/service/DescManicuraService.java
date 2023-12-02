@@ -17,8 +17,8 @@ public class DescManicuraService {
     public List<DescManicura> listardescManicura(){
         return descManicuraRepository.findAll();
     }
-    public DescManicura guardar(DescManicura desc_maManicura){
-        return descManicuraRepository.save(desc_maManicura);
+    public DescManicura guardar(DescManicura descManicura){
+        return descManicuraRepository.save(descManicura);
     }
     public Optional<DescManicura> obtenerdescManicuraPorId(Integer id){
         Optional<DescManicura> descManicura = descManicuraRepository.findById(id);
@@ -28,8 +28,8 @@ public class DescManicuraService {
             return descManicura;
     }
 
-    public Optional<DescManicura> obtenerDescManicura(String desc_manicura){
-        Optional<DescManicura> descManicura = descManicuraRepository.findByDescManicura(desc_manicura);
+    public Optional<DescManicura> obtenerDescManicura(String descmanicura){
+        Optional<DescManicura> descManicura = descManicuraRepository.findByDescripcion(descmanicura);
         if(descManicura.isEmpty())
             return  Optional.empty();
         else
@@ -37,6 +37,12 @@ public class DescManicuraService {
     }
 
     public List<DescManicura> obtenerDescManicuraPorFiltro(String filtro){
-        return descManicuraRepository.filtrardesc_manicuraPorNombreSQL(filtro);
+        return descManicuraRepository.filtrardescmanicuraPorNombreSQL(filtro);
     }
+    public Optional<DescManicura> findByDescripcion(String descripcion) {
+        return descManicuraRepository.findByDescripcion(descripcion);
+    }
+
 }
+
+
