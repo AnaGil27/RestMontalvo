@@ -60,7 +60,6 @@ public class PeinadoController {
 
                 return new ResponseEntity<>("Peinado actualizado exitosamente", HttpStatus.OK);
             } else {
-                // El peinado con el ID proporcionado no existe
                 return new ResponseEntity<>("No se encontró el peinado con el ID: " + id, HttpStatus.NOT_FOUND);
             }
         } catch (Exception e) {

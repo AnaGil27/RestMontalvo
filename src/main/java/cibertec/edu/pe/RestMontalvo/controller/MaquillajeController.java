@@ -13,6 +13,7 @@ import cibertec.edu.pe.RestMontalvo.service.MaquillajeService;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @AllArgsConstructor
@@ -42,6 +43,43 @@ public class MaquillajeController {
             return new ResponseEntity<>(HttpStatus.NO_CONTENT);
         }
         return  new ResponseEntity<>(maquillajeList, HttpStatus.OK);
+    }
+    ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    @PutMapping("/{id}")
+    public ResponseEntity<String> actualizarMaquillaje(@PathVariable Integer id, @RequestBody Maquillaje maquillaje) {
+        try {
+            Optional<Maquillaje> maquillajeExistente = maquillajeService.obtenerMaquillajePorId(id);
+
+            if (maquillajeExistente.isPresent()) {
+                maquillaje.setIdmaquillaje(id);
+                maquillajeService.actualizarMaquillaje(maquillaje);
+
+                return new ResponseEntity<>("Maquillaje actualizado exitosamente", HttpStatus.OK);
+            } else {
+                return new ResponseEntity<>("No se encontró el Maquillaje con el ID: " + id, HttpStatus.NOT_FOUND);
+            }
+        } catch (Exception e) {
+            return new ResponseEntity<>("Error al actualizar el Maquillaje: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @PostMapping("")
+    public ResponseEntity<Maquillaje> registrarMaquillaje(
+            @RequestBody Maquillaje maquillaje
+    ){
+        return new ResponseEntity<>(
+                maquillajeService.guardar(maquillaje), HttpStatus.CREATED
+        );
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> eliminarMaquillaje(@PathVariable Integer id) {
+        try {
+            maquillajeService.eliminarMaquillaje(id);
+            return new ResponseEntity<>("Registro eliminado exitosamente", HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity<>("Error al eliminar el registro: " + e.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
 }

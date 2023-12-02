@@ -1,7 +1,6 @@
 package cibertec.edu.pe.RestMontalvo.controller;
 
 import cibertec.edu.pe.RestMontalvo.model.bd.Manicura;
-import cibertec.edu.pe.RestMontalvo.model.bd.Peinado;
 import cibertec.edu.pe.RestMontalvo.model.dto.DtoEntity;
 import cibertec.edu.pe.RestMontalvo.model.dto.ManicuraDto;
 import cibertec.edu.pe.RestMontalvo.service.ManicuraService;

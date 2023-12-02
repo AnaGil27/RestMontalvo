@@ -8,15 +8,29 @@ import cibertec.edu.pe.RestMontalvo.model.request.MaquillajeRequest;
 import cibertec.edu.pe.RestMontalvo.repository.MaquillajeRepository;
 
 import java.util.List;
-@Service
+import java.util.Optional;
+
 @AllArgsConstructor
-
-
+@Service
 public class MaquillajeService {
+
     private MaquillajeRepository maquillajeRepository;
 
     public List<Maquillaje> listarMaquillaje(){
         return maquillajeRepository.findAll();
+    }
+
+    public Optional<Maquillaje> obtenerMaquillajePorId(Integer id) {
+        Optional<Maquillaje> maquillaje = maquillajeRepository.findById(id);
+        return maquillaje;
+    }
+
+    public void actualizarMaquillaje(Maquillaje maquillaje) {
+        maquillajeRepository.save(maquillaje);
+    }
+
+    public Maquillaje guardar(Maquillaje maquillaje){
+        return maquillajeRepository.save(maquillaje);
     }
 
     public Maquillaje guardarMaquillaje(MaquillajeRequest maquillaje){
@@ -33,6 +47,16 @@ public class MaquillajeService {
         objMaquillaje.setDescmaquillaje(descMaquillaje);
         return maquillajeRepository.save(objMaquillaje);
     }
+
+    public void eliminarMaquillaje(Integer id) {
+        Optional<Maquillaje> opcionalMaquillaje = maquillajeRepository.findById(id);
+        if (opcionalMaquillaje.isPresent()) {
+            maquillajeRepository.deleteById(id);
+        } else {
+            throw new IllegalArgumentException("No se encontró el registro con el ID: " + id);
+        }
+    }
+
 
 }
 

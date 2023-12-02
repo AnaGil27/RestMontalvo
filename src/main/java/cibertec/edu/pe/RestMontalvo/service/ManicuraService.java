@@ -1,13 +1,12 @@
 package cibertec.edu.pe.RestMontalvo.service;
 
-import cibertec.edu.pe.RestMontalvo.model.bd.DescManicura;
-import cibertec.edu.pe.RestMontalvo.model.bd.Manicura;
-
-import cibertec.edu.pe.RestMontalvo.model.bd.Peinado;
-import cibertec.edu.pe.RestMontalvo.model.request.ManicuraRequest;
-import cibertec.edu.pe.RestMontalvo.repository.ManicuraRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
+import cibertec.edu.pe.RestMontalvo.model.bd.DescManicura;
+import cibertec.edu.pe.RestMontalvo.model.bd.Manicura;
+import cibertec.edu.pe.RestMontalvo.model.request.ManicuraRequest;
+import cibertec.edu.pe.RestMontalvo.repository.ManicuraRepository;
+
 
 import java.util.List;
 import java.util.Optional;
